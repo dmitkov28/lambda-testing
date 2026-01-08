@@ -23,5 +23,5 @@ deploy-test-env: deploy-localstack
 	cd terraform && terraform init && terraform apply --auto-approve --var="aws_region=$(AWS_REGION)" --var="aws_lambda_name=$(AWS_LAMBDA_NAME)"
 
 destroy-test-env:
-	-cd terraform && terraform destroy --auto-approve
+	-cd terraform && terraform destroy --auto-approve --var="aws_region=$(AWS_REGION)" --var="aws_lambda_name=$(AWS_LAMBDA_NAME)"
 	-docker rm -f $(LOCALSTACK_NAME)
